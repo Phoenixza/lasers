@@ -46,8 +46,8 @@ public class MenuState extends State {
         sb.enableBlending();
         sb.begin();
         sb.draw(background, 0, 0, MyGdxGame.WIDTH * 3, MyGdxGame.HEIGHT * 3);
-        font.draw(sb, "Game Desing and Programming\n" + "Phoenixza\n" + "Artwork\n" + "Rocketbeans.tv\n" + "Phoenixza\n" + "Music\n"
-                + "Phoenixza\n", MyGdxGame.WIDTH/2-MyGdxGame.WIDTH/4, MyGdxGame.HEIGHT-MyGdxGame.HEIGHT/3);
+        font.draw(sb, "Game Desing and Programming\n" + "Michael Welser\n" + "Artwork\n" + "Rocketbeans.tv\n"  + "Music\n"
+                + "Rocketbeans.tv\n"+ "Jens Hienzsch" +"\n", MyGdxGame.WIDTH/2-MyGdxGame.WIDTH/4, MyGdxGame.HEIGHT-MyGdxGame.HEIGHT/3);
         //edlaser.setColor(Color.RED);
         //edlaser.draw(sb, ed, (MyGdxGame.WIDTH / 3) + (MyGdxGame.WIDTH / 2) + (plyBtn.getWidth() / 2), MyGdxGame.HEIGHT - MyGdxGame.HEIGHT * 2, 500, 200, false);
         sb.draw(plyBtn, (MyGdxGame.WIDTH/3)+(MyGdxGame.WIDTH/2), MyGdxGame.HEIGHT, 300 , 220);

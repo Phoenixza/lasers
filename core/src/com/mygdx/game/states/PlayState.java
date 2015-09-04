@@ -62,12 +62,12 @@ public class PlayState extends State {
         groundPos1 = new Vector2(cam.position.x - cam.viewportWidth/2, GROUND_Y_OFFSET);
         groundPos2 = new Vector2((cam.position.x - cam.viewportWidth/2) + groundfok.getWidth(),GROUND_Y_OFFSET);
         tubes = new Array<Tube>();
-        snerd = new Texture("snerd.png");
+        snerd = new Texture("krakeddy.png");
         sound.play();
-        team = new Texture("tt.png");
+        team = new Texture("rb.png");
         eddy = new Texture("eddy.png");
         bohne = new Texture("bohne.png");
-        hex = new Texture("hex.png");
+        hex = new Texture("denis.png");
         sound.setLooping(true);
         //http://www.java-gaming.org/topics/libgdx-queue-sound-effects/32864/view.html
 
