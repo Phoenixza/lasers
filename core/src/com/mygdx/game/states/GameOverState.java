@@ -3,6 +3,8 @@ package com.mygdx.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Net;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -40,6 +42,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
     private TextField.TextFieldStyle style;
     private TextField textfield;
     public String txtVal;
+    private Music anders;
     private Skin skin;
     private Table table;
     private Stage stage;
@@ -53,6 +56,8 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
 
     protected GameOverState(GameStateManager gsm) throws JSONException {
         super(gsm);
+        //anders = Gdx.audio.newMusic(Gdx.files.internal("data/faust.mp3"));
+        anders = Gdx.audio.newMusic(Gdx.files.internal("data/diesesmal.mp3"));
         bg = new Texture("ed.png");
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         go = new BitmapFont();
@@ -64,6 +69,8 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         obj.toJson(score);
         maxScore = "test";
         getData();
+        anders.play();
+        anders.setLooping(true);
 
         //if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
           //  Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
@@ -217,6 +224,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         bg.dispose();
         go.dispose();
         topscore.dispose();
+        anders.dispose();
     }
 
     @Override

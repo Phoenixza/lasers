@@ -49,8 +49,8 @@ public class PlayState extends State {
 
     protected PlayState(GameStateManager gsm) {
         super(gsm);
-        first = Gdx.audio.newSound(Gdx.files.internal("data/sci_fi_machine_start_up.mp3"));
-        //second = Gdx.audio.newSound(Gdx.files.internal("data/copute_voice.mp3"));
+        //first = Gdx.audio.newSound(Gdx.files.internal("data/diesesmal.mp3"));
+        second = Gdx.audio.newSound(Gdx.files.internal("data/faust.mp3"));
         rand = new Random();
         bird = new Bird(50,300);
         sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
@@ -69,11 +69,13 @@ public class PlayState extends State {
         bohne = new Texture("bohne.png");
         hex = new Texture("denis.png");
         sound.setLooping(true);
+        second.play();
         //http://www.java-gaming.org/topics/libgdx-queue-sound-effects/32864/view.html
 
 
         for (int i =1; i <= TUBE_COUNT; i++){
             tubes.add(new Tube(i*(TUBE_SPACING + Tube.TUBE_WIDTH)));
+
         }
 
         font = new BitmapFont();
@@ -91,6 +93,7 @@ public class PlayState extends State {
     public void update(float dt) throws JSONException {
         handleImput();
         updateGround();
+
         bird.update(dt);
         cam.position.x = bird.getPosition().x + 80;
         for(int i = 0; i < tubes.size; i++){
@@ -101,6 +104,7 @@ public class PlayState extends State {
 
             if(tube.collides(bird.getBounce())){
                 //gsm.set(new PlayState(gsm));
+                //second.play();
                 gsm.set(new GameOverState(gsm));
             }
         }
@@ -130,6 +134,7 @@ public class PlayState extends State {
             sb.draw(pics[0], cam.position.x*i, cam.position.y/2);
         }
         */
+
         sb.draw(bohne, cam.position.x/2, cam.position.y/2);
         sb.draw(eddy, 590, cam.position.y/5);
 
@@ -168,10 +173,14 @@ public class PlayState extends State {
             tube.dispose();
             System.out.print("Play State Disposed");
         }
-        first.dispose();
+        //first.dispose();
+        second.dispose();
         groundfok.dispose();
         sound.dispose();
         group.dispose();
+        hex.dispose();
+        team.dispose();
+        snerd.dispose();
     }
 
     private void updateGround(){
