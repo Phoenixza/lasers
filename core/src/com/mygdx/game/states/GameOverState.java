@@ -69,8 +69,8 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         obj.toJson(score);
         maxScore = "test";
         getData();
-        anders.play();
-        anders.setLooping(true);
+        //anders.play();
+        //anders.setLooping(true);
 
         //if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
           //  Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
@@ -221,10 +221,10 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
 
     @Override
     public void dispose() {
+        //anders.dispose();
         bg.dispose();
         go.dispose();
         topscore.dispose();
-        anders.dispose();
     }
 
     @Override
