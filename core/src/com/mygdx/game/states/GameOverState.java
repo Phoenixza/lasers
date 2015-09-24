@@ -69,8 +69,8 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         obj.toJson(score);
         maxScore = "test";
         getData();
-        //anders.play();
-        //anders.setLooping(true);
+        anders.play();
+        anders.setLooping(true);
 
         //if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
           //  Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
@@ -89,9 +89,12 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
             // New Game
             touchPos.set(Gdx.input.getX(), Gdx.input.getY(),0);
             cam.unproject(touchPos);
-                if(touchPos.x > 70+plyBtn.getWidth() | touchPos.x<70 & touchPos.y > 155 + plyBtn.getHeight() | touchPos.y < 140){
+
+               // if(touchPos.x > 70+plyBtn.getWidth() | touchPos.x<70 & touchPos.y > 155 + plyBtn.getHeight() | touchPos.y < 140){
+
+
                     //gsm.set(new PlayState(gsm));
-                } else {
+               // } else {
                     if(txtVal != null){
                         postData();
                         gsm.set(new PlayState(gsm));
@@ -99,7 +102,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
                         gsm.set(new PlayState(gsm));
                     }
 
-                }
+               // }
         } /*
         if(Gdx.input.isTouched()){
             gsm.set(new PlayState(gsm));
@@ -122,7 +125,13 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         parameters.put(f, "user");
         Net.HttpRequest request = new Net.HttpRequest(Net.HttpMethods.POST);
         request.setUrl(urlp);
-        String sent = txtVal.substring(0, 12);
+        String sent = "";
+        if(txtVal.length()>11){
+            sent = txtVal.substring(0, 12);
+        }
+        else {
+            sent = txtVal;
+        }
         request.setContent("points=" + PlayState.highscore + "&name=" + sent);
 
         Gdx.net.sendHttpRequest(request, new Net.HttpResponseListener() {
@@ -221,7 +230,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
 
     @Override
     public void dispose() {
-        //anders.dispose();
+        anders.dispose();
         bg.dispose();
         go.dispose();
         topscore.dispose();

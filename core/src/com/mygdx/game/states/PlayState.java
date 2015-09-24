@@ -12,6 +12,7 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.Tube;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import us.monoid.json.JSONException;
@@ -24,28 +25,41 @@ public class PlayState extends State {
     private static final int TUBE_SPACING = 180;
     private static final int TUBE_COUNT = 4;
     private Bird bird;
-    private Texture bg;
-    private Texture group;
+    private Texture bg = new Texture("bgd.png");
+    private Texture group = new Texture("group.png");
     private BitmapFont font;
     private Random rand;
     private Music sound;
-    private Texture team;
+    private Texture team = new Texture("rb.png");
     public static String highscore;
     public static CharSequence str = "DAS IST UNMOEGLICH!";
     CharSequence goal = "Ziel";
     private Texture ground;
-    private Texture eddy;
+    private Texture eddy = new Texture("eddy.png");
     private Array<Tube> tubes;
     private Vector2 groundPos1, groundPos2;
-    private Texture bohne;
+    private Texture bohne= new Texture("bohne.png");
     private Sound first;
     private Sound second;
     private Sound third;
     private Sound fourth;
     private static final int GROUND_Y_OFFSET = -60;
-    private Texture snerd;
-    private Texture hex;
+    private Texture snerd = new Texture("krakeddy.png");
+    private Texture hex = new Texture("denis.png");
+    private Texture schlo = new Texture("schlotzke.png");
+    private Texture eddys = new Texture("eddys.png");
     private Texture groundfok;
+    public Texture[] rdm = {snerd,hex,bohne,team,eddy,eddys,schlo};
+    public int r0 = (int)(Math.random()*7);
+    public int r1 = (int)(Math.random()*7);
+    public int r2 = (int)(Math.random()*7);
+    public int r3 = (int)(Math.random()*7);
+    public int r4 = (int)(Math.random()*7);
+    public int r5 = (int)(Math.random()*7);
+    public int r6 = (int)(Math.random()*7);
+    public int r7 = (int)(Math.random()*7);
+    public int r8 = (int)(Math.random()*7);
+    public int r9 = (int)(Math.random()*7);
 
     protected PlayState(GameStateManager gsm) {
         super(gsm);
@@ -55,21 +69,22 @@ public class PlayState extends State {
         bird = new Bird(50,300);
         sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
-        bg = new Texture("bgd.png");
-        group = new Texture("group.png");
+        //bg = new Texture("bgd.png");
+        //group = new Texture("group.png");
         ground = new Texture("grounded.png");
         groundfok = new Texture("grounded.png");
         groundPos1 = new Vector2(cam.position.x - cam.viewportWidth/2, GROUND_Y_OFFSET);
         groundPos2 = new Vector2((cam.position.x - cam.viewportWidth/2) + groundfok.getWidth(),GROUND_Y_OFFSET);
         tubes = new Array<Tube>();
-        snerd = new Texture("krakeddy.png");
+        //snerd = new Texture("krakeddy.png");
         sound.play();
-        team = new Texture("rb.png");
-        eddy = new Texture("eddy.png");
-        bohne = new Texture("bohne.png");
-        hex = new Texture("denis.png");
+        //team = new Texture("rb.png");
+        //eddy = new Texture("eddy.png");
+        //bohne = new Texture("bohne.png");
+        //hex = new Texture("denis.png");
         sound.setLooping(true);
         second.play();
+
         //http://www.java-gaming.org/topics/libgdx-queue-sound-effects/32864/view.html
 
 
@@ -136,13 +151,6 @@ public class PlayState extends State {
         */
 
         sb.draw(bohne, cam.position.x/2, cam.position.y/2);
-        sb.draw(eddy, 590, cam.position.y/5);
-
-        sb.draw(bohne,3000, cam.position.y/2);
-        sb.draw(bohne,4000, cam.position.y/2);
-        sb.draw(bohne, 5000, cam.position.y/2);
-        sb.draw(bohne, 6000, cam.position.y / 2);
-
         sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
         for(Tube tube: tubes) {
             sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
@@ -151,16 +159,37 @@ public class PlayState extends State {
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         //font.draw(sb, String.valueOf(bird.getPosition().x * rand.nextInt(100)+100)  , cam.position.x+39, cam.position.y+193);
         font.draw(sb, String.valueOf(bird.getPosition().x) , cam.position.x+39, cam.position.y+193);
+        //sb.draw(rdm[(int)(Math.random()*3)],1000, cam.position.y/5);
+        sb.draw(rdm[r0],1300, cam.position.y/5);
+        sb.draw(rdm[r1],2100, cam.position.y/5);
+        sb.draw(rdm[r2],2900, cam.position.y/5);
+        sb.draw(rdm[r3],3900, cam.position.y/5);
+        sb.draw(rdm[r4],4700, cam.position.y/5);
+        sb.draw(rdm[r5],5500, cam.position.y/5);
+        sb.draw(rdm[r6],6300, cam.position.y/5);
+        sb.draw(rdm[r7],7100, cam.position.y/5);
+        sb.draw(rdm[r8],7900, cam.position.y/5);
+        sb.draw(rdm[r9],8600, cam.position.y/5);
+
+        sb.draw(group, 290, 46);
+        sb.draw(eddy, 590, cam.position.y/5);
+        //sb.draw(hex, 1000, cam.position.y/5);
+        //sb.draw(snerd, 1500, cam.position.y/5);
+        //sb.draw(team, 2000, cam.position.y/5);
+        //sb.draw(bohne,3000, cam.position.y / 2);
+        //sb.draw(bohne,4000, cam.position.y/2);
+        //sb.draw(bohne,5000, cam.position.y/2);
+        //sb.draw(team, 5500, cam.position.y/5);
+        //sb.draw(bohne, 6000, cam.position.y / 2);
         font.draw(sb,str,7000,180);
-
-
-
-        sb.draw(team, 800, cam.position.y/5);
-        sb.draw(snerd, 1800, cam.position.y/5);
-        sb.draw(hex, 2600, cam.position.y/5);
+        font.draw(sb,str,7200,180);
+        font.draw(sb,str,7400,180);
+        font.draw(sb,str,7600,180);
+        sb.draw(team, 8000, cam.position.y/5);
+        sb.draw(bohne,9000, cam.position.y / 2);
         sb.draw(groundfok, groundPos1.x, groundPos1.y);
         sb.draw(groundfok, groundPos2.x, groundPos2.y);
-        sb.draw(group,290,46);
+
         sb.end();
     }
 
@@ -174,6 +203,13 @@ public class PlayState extends State {
             System.out.print("Play State Disposed");
         }
         //first.dispose();
+        rdm[0].dispose();
+        rdm[1].dispose();
+        rdm[2].dispose();
+        rdm[3].dispose();
+        rdm[4].dispose();
+        rdm[5].dispose();
+        rdm[6].dispose();
         second.dispose();
         groundfok.dispose();
         sound.dispose();
