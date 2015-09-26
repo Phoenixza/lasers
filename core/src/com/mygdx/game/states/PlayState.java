@@ -49,17 +49,17 @@ public class PlayState extends State {
     private Texture schlo = new Texture("schlotzke.png");
     private Texture eddys = new Texture("eddys.png");
     private Texture groundfok;
-    public Texture[] rdm = {snerd,hex,bohne,team,eddy,eddys,schlo};
-    public int r0 = (int)(Math.random()*7);
-    public int r1 = (int)(Math.random()*7);
-    public int r2 = (int)(Math.random()*7);
-    public int r3 = (int)(Math.random()*7);
-    public int r4 = (int)(Math.random()*7);
-    public int r5 = (int)(Math.random()*7);
-    public int r6 = (int)(Math.random()*7);
-    public int r7 = (int)(Math.random()*7);
-    public int r8 = (int)(Math.random()*7);
-    public int r9 = (int)(Math.random()*7);
+    public Texture[] rdm = {snerd,hex,bohne,team,eddy};
+    public int r0 = (int)(Math.random()*5);
+    public int r1 = (int)(Math.random()*5);
+    public int r2 = (int)(Math.random()*5);
+    public int r3 = (int)(Math.random()*5);
+    public int r4 = (int)(Math.random()*5);
+    public int r5 = (int)(Math.random()*5);
+    public int r6 = (int)(Math.random()*5);
+    public int r7 = (int)(Math.random()*5);
+    public int r8 = (int)(Math.random()*5);
+    public int r9 = (int)(Math.random()*5);
 
     protected PlayState(GameStateManager gsm) {
         super(gsm);
@@ -203,6 +203,7 @@ public class PlayState extends State {
             System.out.print("Play State Disposed");
         }
         //first.dispose();
+        /*
         rdm[0].dispose();
         rdm[1].dispose();
         rdm[2].dispose();
@@ -210,6 +211,9 @@ public class PlayState extends State {
         rdm[4].dispose();
         rdm[5].dispose();
         rdm[6].dispose();
+        rdm[7].dispose();
+        rdm[8].dispose();
+        rdm[9].dispose(); */
         second.dispose();
         groundfok.dispose();
         sound.dispose();

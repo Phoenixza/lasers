@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -53,6 +54,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
     public String [] points = new String[10];
     public String [] name = new String[10];
     public Array<Highscoredata> highscoredata;
+    public boolean touch = false;
 
     protected GameOverState(GameStateManager gsm) throws JSONException {
         super(gsm);
@@ -85,7 +87,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
     protected void handleImput() {
 
         Vector3 touchPos = new Vector3();
-        if(Gdx.input.isTouched()){
+        if(Gdx.input.isTouched() && (touch == true)){
             // New Game
             touchPos.set(Gdx.input.getX(), Gdx.input.getY(),0);
             cam.unproject(touchPos);
@@ -192,10 +194,13 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
                     highscoredata.add(newHighScore);
                     i++;
                 }
+
                 if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
                     Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
+                    //touch = true;
                 }
-
+                //Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
+                touch = true;
             }
 
             @Override
@@ -224,7 +229,8 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
                 +"\n#Platz   4 " + name[3] + " " + points[3] + "\n#Platz   5 " + name[4] + " " + points[4] + "\n#Platz   6 " + name[5] + " " + points[5]
                 +"\n#Platz   7 " + name[6] + " " + points[6] + "\n#Platz   8 " + name[7] + " " + points[7] + "\n#Platz   9 " + name[8] + " " + points[8]
                 +"\n#Platz 10 " + name[9] + " " + points[9] +"\n############################", 5, 270);
-        //sb.draw(plyBtn, 65, 150);
+        //sb.draw(plyBtn, 180, 350, 50, 40);
+        //sb.draw(plyBtn, (MyGdxGame.WIDTH/2)+(MyGdxGame.WIDTH/2), MyGdxGame.HEIGHT, 300 , 220);
         sb.end();
     }
 

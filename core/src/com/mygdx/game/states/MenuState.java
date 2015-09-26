@@ -44,6 +44,7 @@ public class MenuState extends State {
     @Override
     public void render(SpriteBatch sb) {
         sb.enableBlending();
+        //sb.setProjectionMatrix(cam.combined);
         sb.begin();
         sb.draw(background, 0, 0, MyGdxGame.WIDTH * 3, MyGdxGame.HEIGHT * 3);
         font.draw(sb, "Game Desing and Programming\n" + "Michael Welser\n" + "Artwork\n" + "Rocketbeans.tv\n"  + "Music\n"
