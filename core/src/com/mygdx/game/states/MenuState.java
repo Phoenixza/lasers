@@ -46,13 +46,14 @@ public class MenuState extends State {
         sb.enableBlending();
         //sb.setProjectionMatrix(cam.combined);
         sb.begin();
-        sb.draw(background, 0, 0, MyGdxGame.WIDTH * 3, MyGdxGame.HEIGHT * 3);
+        //sb.draw(background, 0, 0, MyGdxGame.WIDTH * 3, MyGdxGame.HEIGHT * 3);
+        sb.draw(background, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.draw(sb, "Game Desing and Programming\n" + "Michael Welser\n" + "Artwork\n" + "Rocketbeans.tv\n"  + "Music\n"
-                + "Rocketbeans.tv\n"+ "Jens Hienzsch" +"\n", MyGdxGame.WIDTH/2-MyGdxGame.WIDTH/4, MyGdxGame.HEIGHT-MyGdxGame.HEIGHT/3);
+                + "Rocketbeans.tv\n"+ "Jens Hienzsch" +"\n", Gdx.graphics.getWidth()/100, Gdx.graphics.getHeight()/3);
         //edlaser.setColor(Color.RED);
         //edlaser.draw(sb, ed, (MyGdxGame.WIDTH / 3) + (MyGdxGame.WIDTH / 2) + (plyBtn.getWidth() / 2), MyGdxGame.HEIGHT - MyGdxGame.HEIGHT * 2, 500, 200, false);
-        sb.draw(plyBtn, (MyGdxGame.WIDTH/3)+(MyGdxGame.WIDTH/2), MyGdxGame.HEIGHT, 300 , 220);
-        sb.draw(logo, (MyGdxGame.WIDTH/2)-logo.getWidth()/13, MyGdxGame.HEIGHT+MyGdxGame.HEIGHT/3,900,600);
+        sb.draw(plyBtn, (Gdx.graphics.getWidth() / 3 - plyBtn.getWidth()), Gdx.graphics.getHeight() / 2, Gdx.graphics.getHeight()/3, Gdx.graphics.getWidth()/4);
+        sb.draw(logo, 0, Gdx.graphics.getHeight() /2 + Gdx.graphics.getHeight()/7, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() /3);
 
         sb.end();
     }

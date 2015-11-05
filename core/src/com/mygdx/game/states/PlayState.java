@@ -33,6 +33,7 @@ public class PlayState extends State {
     private Texture team = new Texture("rb.png");
     public static String highscore;
     public static CharSequence str = "DAS IST UNMOEGLICH!";
+    public static CharSequence stra = "Lasergeschwindigkeit!";
     CharSequence goal = "Ziel";
     private Texture ground;
     private Texture eddy = new Texture("eddy.png");
@@ -40,7 +41,7 @@ public class PlayState extends State {
     private Vector2 groundPos1, groundPos2;
     private Texture bohne= new Texture("bohne.png");
     private Sound first;
-    private Sound second;
+    private Music second;
     private Sound third;
     private Sound fourth;
     private static final int GROUND_Y_OFFSET = -60;
@@ -64,7 +65,7 @@ public class PlayState extends State {
     protected PlayState(GameStateManager gsm) {
         super(gsm);
         //first = Gdx.audio.newSound(Gdx.files.internal("data/diesesmal.mp3"));
-        second = Gdx.audio.newSound(Gdx.files.internal("data/faust.mp3"));
+        second = Gdx.audio.newMusic(Gdx.files.internal("data/faust.mp3"));
         rand = new Random();
         bird = new Bird(50,300);
         sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
@@ -77,13 +78,13 @@ public class PlayState extends State {
         groundPos2 = new Vector2((cam.position.x - cam.viewportWidth/2) + groundfok.getWidth(),GROUND_Y_OFFSET);
         tubes = new Array<Tube>();
         //snerd = new Texture("krakeddy.png");
+        second.play();
         sound.play();
         //team = new Texture("rb.png");
         //eddy = new Texture("eddy.png");
         //bohne = new Texture("bohne.png");
         //hex = new Texture("denis.png");
         sound.setLooping(true);
-        second.play();
 
         //http://www.java-gaming.org/topics/libgdx-queue-sound-effects/32864/view.html
 
@@ -108,8 +109,13 @@ public class PlayState extends State {
     public void update(float dt) throws JSONException {
         handleImput();
         updateGround();
+        if(bird.getPosition().x > 3000){
+            bird.update(dt*3/2);
+        } else {
+            bird.update(dt);
+        }
 
-        bird.update(dt);
+
         cam.position.x = bird.getPosition().x + 80;
         for(int i = 0; i < tubes.size; i++){
             Tube tube = tubes.get(i);
@@ -181,7 +187,7 @@ public class PlayState extends State {
         //sb.draw(bohne,5000, cam.position.y/2);
         //sb.draw(team, 5500, cam.position.y/5);
         //sb.draw(bohne, 6000, cam.position.y / 2);
-        font.draw(sb,str,7000,180);
+        font.draw(sb,stra,2800,180);
         font.draw(sb,str,7200,180);
         font.draw(sb,str,7400,180);
         font.draw(sb,str,7600,180);

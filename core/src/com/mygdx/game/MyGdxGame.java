@@ -13,7 +13,7 @@ import us.monoid.json.JSONException;
 public class MyGdxGame extends ApplicationAdapter {
 	public static final int WIDTH = 480;
 	public static final int HEIGHT = 800;
-	public static final String TITLE = "Flappy";
+	public static final String TITLE = "Laser";
 	private GameStateManager gsm;
 	private SpriteBatch sb;
 	SpriteBatch batch;

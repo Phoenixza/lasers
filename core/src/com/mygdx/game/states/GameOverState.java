@@ -32,8 +32,8 @@ import us.monoid.json.JSONException;
  * Created by welser on 04.08.2015.
  */
 public class GameOverState extends State implements Net.HttpResponseListener, Input.TextInputListener{
-    private String urlg = "http://141.28.100.152/phpandroid/get_all.php";
-    private String urlp = "http://141.28.100.152/phpandroid/highscore.php";
+    private String urlg = "http://51.254.131.31/phpandroid/get_all.php";
+    private String urlp = "http://51.254.131.31/phpandroid/highscore.php";
     private Texture bg;
     private BitmapFont go;
     private CharSequence gameOver = "Game Over \n\nHighscore:\n "  + PlayState.highscore;
@@ -59,6 +59,8 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
     protected GameOverState(GameStateManager gsm) throws JSONException {
         super(gsm);
         //anders = Gdx.audio.newMusic(Gdx.files.internal("data/faust.mp3"));
+
+
         anders = Gdx.audio.newMusic(Gdx.files.internal("data/diesesmal.mp3"));
         bg = new Texture("ed.png");
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
@@ -76,7 +78,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
 
         //if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
           //  Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
-       // }
+        //}
         //Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
 
 
@@ -196,7 +198,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
                 }
 
                 if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
-                    Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
+                    Gdx.input.getTextInput(GameOverState.this, "Highscore Liste", null, "Eduard Laser");
                     //touch = true;
                 }
                 //Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
