@@ -70,6 +70,8 @@ public class PlayState extends State {
         bird = new Bird(50,300);
         sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
+
+
         //bg = new Texture("bgd.png");
         //group = new Texture("group.png");
         ground = new Texture("grounded.png");
@@ -164,7 +166,7 @@ public class PlayState extends State {
         }
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         //font.draw(sb, String.valueOf(bird.getPosition().x * rand.nextInt(100)+100)  , cam.position.x+39, cam.position.y+193);
-        font.draw(sb, String.valueOf(bird.getPosition().x) , cam.position.x+39, cam.position.y+193);
+        font.draw(sb, String.valueOf(bird.getPosition().x), cam.position.x + 39, cam.position.y + 193);
         //sb.draw(rdm[(int)(Math.random()*3)],1000, cam.position.y/5);
         sb.draw(rdm[r0],1300, cam.position.y/5);
         sb.draw(rdm[r1],2100, cam.position.y/5);
@@ -176,7 +178,6 @@ public class PlayState extends State {
         sb.draw(rdm[r7],7100, cam.position.y/5);
         sb.draw(rdm[r8],7900, cam.position.y/5);
         sb.draw(rdm[r9],8600, cam.position.y/5);
-
         sb.draw(group, 290, 46);
         sb.draw(eddy, 590, cam.position.y/5);
         //sb.draw(hex, 1000, cam.position.y/5);

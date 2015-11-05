@@ -196,13 +196,14 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
                     highscoredata.add(newHighScore);
                     i++;
                 }
-
+                touch = false;
                 if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
                     Gdx.input.getTextInput(GameOverState.this, "Highscore Liste", null, "Eduard Laser");
-                    //touch = true;
+                    touch = true;
                 }
                 //Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
                 touch = true;
+
             }
 
             @Override

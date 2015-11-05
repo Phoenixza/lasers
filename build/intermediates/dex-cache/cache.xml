@@ -5,8 +5,8 @@
         jar="C:\Users\user\Desktop\games\core\build\libs\core-1.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="895ff4bf646c7c304b648833fb5952765569df8e">
-        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\release\core-1.0-b4a91378f1a864e1b16e1b52d42e8b5e395ba35a.jar" />
+        sha1="0587c617686c8151d8803f1e694184f0876d311f">
+        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\debug\core-1.0-b4a91378f1a864e1b16e1b52d42e8b5e395ba35a.jar" />
     </item>
 
 </items>
