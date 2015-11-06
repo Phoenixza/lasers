@@ -41,8 +41,8 @@ public class Tube {
     public void reposition(float x){
         posTopTube.set(x,rand.nextInt(FLUCTUATION) + TUBE_GAP + LOWEST_OPENING);
         posBotTube.set(x, posTopTube.y - TUBE_GAP - bottomTube.getHeight());
-        boundsTop.setPosition(posTopTube.x, posTopTube.y);
-        boundsBot.setPosition(posBotTube.x, posBotTube.y);
+        boundsTop.setPosition(posTopTube.x, posTopTube.y+5);
+        boundsBot.setPosition(posBotTube.x, posBotTube.y-5);
     }
 
     public boolean collides(Rectangle player){
@@ -57,8 +57,8 @@ public class Tube {
         posTopTube = new Vector2(x,rand.nextInt(FLUCTUATION) + TUBE_GAP + LOWEST_OPENING);
         posBotTube = new Vector2(x, posTopTube.y - TUBE_GAP - bottomTube.getHeight());
 
-        boundsTop = new Rectangle(posTopTube.x, posTopTube.y, topTube.getWidth(), topTube.getHeight());
-        boundsBot = new Rectangle(posBotTube.x, posBotTube.y, bottomTube.getWidth(), bottomTube.getHeight());
+        boundsTop = new Rectangle(posTopTube.x, posTopTube.y, topTube.getWidth(), topTube.getHeight()+5);
+        boundsBot = new Rectangle(posBotTube.x, posBotTube.y, bottomTube.getWidth(), bottomTube.getHeight()-5);
 
     }
 

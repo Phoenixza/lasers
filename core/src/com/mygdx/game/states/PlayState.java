@@ -43,6 +43,7 @@ public class PlayState extends State {
     private Sound first;
     private Music second;
     private Sound third;
+    private static CharSequence strend = "SPALTEN!";
     private Sound fourth;
     private static final int GROUND_Y_OFFSET = -60;
     private Texture snerd = new Texture("krakeddy.png");
@@ -131,8 +132,9 @@ public class PlayState extends State {
                 gsm.set(new GameOverState(gsm));
             }
         }
-        if(bird.getPosition().y <= ground.getHeight() + GROUND_Y_OFFSET){
-            //gsm.set(new PlayState(gsm));
+        //if(bird.getPosition().y <= ground.getHeight() + GROUND_Y_OFFSET){
+        if(bird.getPosition().y <= ground.getHeight() + GROUND_Y_OFFSET) {
+                //gsm.set(new PlayState(gsm));
             gsm.set(new GameOverState(gsm));
         }
         if(cam.position.x == 500){
@@ -190,10 +192,11 @@ public class PlayState extends State {
         //sb.draw(bohne, 6000, cam.position.y / 2);
         font.draw(sb,stra,2800,180);
         font.draw(sb,str,7200,180);
-        font.draw(sb,str,7400,180);
-        font.draw(sb,str,7600,180);
+        //font.draw(sb,str,7400,180);
+        //font.draw(sb,str,7600,180);
         sb.draw(team, 8000, cam.position.y/5);
         sb.draw(bohne,9000, cam.position.y / 2);
+        font.draw(sb,strend, 9500, 180);
         sb.draw(groundfok, groundPos1.x, groundPos1.y);
         sb.draw(groundfok, groundPos2.x, groundPos2.y);
 
