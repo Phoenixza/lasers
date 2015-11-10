@@ -2,11 +2,32 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.6.4\eb089b58828b842bbdd4f7cb48b54626924cfdd5\gdx-box2d-1.6.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eb089b58828b842bbdd4f7cb48b54626924cfdd5">
+        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\release\gdx-box2d-1.6.4-567e42576f988c0f88733431346d40403e287c8f.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.6.4\13ed9a042554afce8c8b38c53e9b6d6d9c10600e\gdx-1.6.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="13ed9a042554afce8c8b38c53e9b6d6d9c10600e">
+        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\release\gdx-1.6.4-40511e5226dfac2155d80bf5dbbc7cfc82af6e12.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.6.4\d681be06ea6873f2056bbcbe091367bd9f7c23f2\gdx-backend-android-1.6.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d681be06ea6873f2056bbcbe091367bd9f7c23f2">
+        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\release\gdx-backend-android-1.6.4-9b5c5b6f6c7012bdf212d239be7adc61a88d88a8.jar" />
+    </item>
+    <item
         jar="C:\Users\user\Desktop\games\core\build\libs\core-1.0.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="e3590e86dfabc2a90983522c01240add85f2bfbc">
-        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\debug\core-1.0-b4a91378f1a864e1b16e1b52d42e8b5e395ba35a.jar" />
+        revision="21.1.2"
+        sha1="6b32577a2e0f987b26f5c09f0b0d285e4fdadceb">
+        <dex dex="C:\Users\user\Desktop\games\android\build\intermediates\pre-dexed\release\core-1.0-b4a91378f1a864e1b16e1b52d42e8b5e395ba35a.jar" />
     </item>
 
 </items>

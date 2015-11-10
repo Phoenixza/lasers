@@ -14,7 +14,7 @@ ADDED from AndroidManifest.xml:2:1
 uses-sdk
 ADDED from AndroidManifest.xml:7:5
 	android:targetSdkVersion
-		ADDED from AndroidManifest.xml:7:42
+		ADDED from AndroidManifest.xml:7:41
 	android:minSdkVersion
 		ADDED from AndroidManifest.xml:7:15
 uses-permission#android.permission.INTERNET
@@ -45,7 +45,7 @@ ADDED from AndroidManifest.xml:13:5
 		ADDED from AndroidManifest.xml:15:9
 	android:theme
 		ADDED from AndroidManifest.xml:17:9
-activity#com.mygdx.game.android.AndroidLauncher
+activity#com.mygdx.game.edlaser.AndroidLauncher
 ADDED from AndroidManifest.xml:18:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:21:13
