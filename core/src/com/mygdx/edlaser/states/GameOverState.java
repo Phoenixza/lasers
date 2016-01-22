@@ -52,8 +52,17 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         super(gsm);
         //anders = Gdx.audio.newMusic(Gdx.files.internal("data/faust.mp3"));
 
+        if(PlayState.character == 1){
+            anders = Gdx.audio.newMusic(Gdx.files.internal("data/diesesmal.mp3"));
+            anders.play();
+            anders.setLooping(true);
+        } else {
+            //anders = Gdx.audio.newMusic(Gdx.files.internal("data/lbmusic.mp3"));
+            anders = Gdx.audio.newMusic(Gdx.files.internal("data/diesesmal.mp3"));
+            anders.play();
+            anders.setLooping(true);
+        }
 
-        anders = Gdx.audio.newMusic(Gdx.files.internal("data/diesesmal.mp3"));
         bg = new Texture("ed.png");
         cam.setToOrtho(false, com.mygdx.edlaser.MyGdxGame.WIDTH/2, com.mygdx.edlaser.MyGdxGame.HEIGHT/2);
         go = new BitmapFont();
@@ -65,8 +74,7 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         obj.toJson(score);
         maxScore = "test";
         getData();
-        anders.play();
-        anders.setLooping(true);
+
 
         //if((Float.parseFloat(PlayState.highscore) > Float.parseFloat((points[9])))){
           //  Gdx.input.getTextInput(GameOverState.this, "Higscore Liste", null, "Eduard Laser");
@@ -93,9 +101,9 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
                // } else {
                     if(txtVal != null){
                         postData();
-                        gsm.set(new PlayState(gsm));
+                        gsm.set(new PlayState(gsm,PlayState.character+2));
                     } else{
-                        gsm.set(new PlayState(gsm));
+                        gsm.set(new PlayState(gsm,PlayState.character+2));
                     }
 
                // }
@@ -122,13 +130,27 @@ public class GameOverState extends State implements Net.HttpResponseListener, In
         Net.HttpRequest request = new Net.HttpRequest(Net.HttpMethods.POST);
         request.setUrl(urlp);
         String sent = "";
-        if(txtVal.length()>11){
-            sent = txtVal.substring(0, 12);
+
+        // if ede mode was choosen
+        if(PlayState.character == 1){
+            if(txtVal.length()>11){
+                sent = txtVal.substring(0, 12);
+            }
+            else {
+                sent = txtVal;
+            }
+            request.setContent("points=" + PlayState.highscore + "&name="+ sent);
+        // else lauchboy mode was choosen
+        }else{
+            if(txtVal.length()>11){
+                sent = txtVal.substring(0, 7);
+            }
+            else {
+                sent = txtVal;
+            }
+            // put "Lauch" dazu
+            request.setContent("points=" + PlayState.highscore + "&name=" + "Lauch" + sent);
         }
-        else {
-            sent = txtVal;
-        }
-        request.setContent("points=" + PlayState.highscore + "&name=" + sent);
 
         Gdx.net.sendHttpRequest(request, new Net.HttpResponseListener() {
             @Override

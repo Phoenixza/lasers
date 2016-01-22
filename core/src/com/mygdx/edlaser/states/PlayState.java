@@ -58,14 +58,37 @@ public class PlayState extends State {
     public int r7 = (int)(Math.random()*5);
     public int r8 = (int)(Math.random()*5);
     public int r9 = (int)(Math.random()*5);
+    public static int character = 0;
 
-    protected PlayState(GameStateManager gsm) {
+    protected PlayState(GameStateManager gsm, int c) {
         super(gsm);
+        character = c;
         //first = Gdx.audio.newSound(Gdx.files.internal("data/diesesmal.mp3"));
-        second = Gdx.audio.newMusic(Gdx.files.internal("data/faust.mp3"));
+
+
         rand = new Random();
         bird = new com.mygdx.edlaser.sprites.Bird(50,300);
-        sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
+
+        if(character == 1){
+            second = Gdx.audio.newMusic(Gdx.files.internal("data/faust.mp3"));
+            second.play();
+        } if(character == 0){
+            second = Gdx.audio.newMusic(Gdx.files.internal("data/cod.MP3"));
+            second.play();
+        }
+
+        if(character == 3 || character == 2){
+            character = character - 2;
+        }
+
+        if(character == 1){
+            sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
+        } else {
+            //sound = Gdx.audio.newMusic(Gdx.files.internal("data/lauchboymusic.mp3"));
+            sound = Gdx.audio.newMusic(Gdx.files.internal("data/lasertheme.mp3"));
+        }
+
+
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
 
 
@@ -77,7 +100,9 @@ public class PlayState extends State {
         groundPos2 = new Vector2((cam.position.x - cam.viewportWidth/2) + groundfok.getWidth(),GROUND_Y_OFFSET);
         tubes = new Array<com.mygdx.edlaser.sprites.Tube>();
         //snerd = new Texture("krakeddy.png");
-        second.play();
+
+
+
         sound.play();
         //team = new Texture("rb.png");
         //eddy = new Texture("eddy.png");
@@ -166,16 +191,30 @@ public class PlayState extends State {
         //font.draw(sb, String.valueOf(bird.getPosition().x * rand.nextInt(100)+100)  , cam.position.x+39, cam.position.y+193);
         font.draw(sb, String.valueOf(bird.getPosition().x), cam.position.x + 39, cam.position.y + 193);
         //sb.draw(rdm[(int)(Math.random()*3)],1000, cam.position.y/5);
-        sb.draw(rdm[r0],1300, cam.position.y/5);
-        sb.draw(rdm[r1],2100, cam.position.y/5);
-        sb.draw(rdm[r2],2900, cam.position.y/5);
-        sb.draw(rdm[r3],3900, cam.position.y/5);
-        sb.draw(rdm[r4],4700, cam.position.y/5);
-        sb.draw(rdm[r5],5500, cam.position.y/5);
-        sb.draw(rdm[r6],6300, cam.position.y/5);
-        sb.draw(rdm[r7],7100, cam.position.y/5);
-        sb.draw(rdm[r8],7900, cam.position.y/5);
-        sb.draw(rdm[r9],8600, cam.position.y/5);
+        if(character == 1){
+            sb.draw(rdm[r0],1300, cam.position.y/5);
+            sb.draw(rdm[r1],2100, cam.position.y/5);
+            sb.draw(rdm[r2],2900, cam.position.y/5);
+            sb.draw(rdm[r3],3900, cam.position.y/5);
+            sb.draw(rdm[r4],4700, cam.position.y/5);
+            sb.draw(rdm[r5],5500, cam.position.y/5);
+            sb.draw(rdm[r6],6300, cam.position.y/5);
+            sb.draw(rdm[r7],7100, cam.position.y/5);
+            sb.draw(rdm[r8],7900, cam.position.y/5);
+            sb.draw(rdm[r9],8600, cam.position.y/5);
+        } else {
+            sb.draw(bohne,1300, cam.position.y/5);
+            sb.draw(bohne,2100, cam.position.y/5);
+            sb.draw(bohne,2900, cam.position.y/5);
+            sb.draw(bohne,3900, cam.position.y/5);
+            sb.draw(bohne,4700, cam.position.y/5);
+            sb.draw(bohne,5500, cam.position.y/5);
+            sb.draw(bohne,6300, cam.position.y/5);
+            sb.draw(bohne,7100, cam.position.y/5);
+            sb.draw(bohne,7900, cam.position.y/5);
+            sb.draw(bohne,8600, cam.position.y/5);
+        }
+
         sb.draw(group, 290, 46);
         sb.draw(eddy, 590, cam.position.y/5);
         //sb.draw(hex, 1000, cam.position.y/5);
@@ -186,7 +225,7 @@ public class PlayState extends State {
         //sb.draw(bohne,5000, cam.position.y/2);
         //sb.draw(team, 5500, cam.position.y/5);
         //sb.draw(bohne, 6000, cam.position.y / 2);
-        font.draw(sb,stra,2800,180);
+        font.draw(sb, stra,2800,180);
         font.draw(sb,str,7200,180);
         //font.draw(sb,str,7400,180);
         //font.draw(sb,str,7600,180);
@@ -220,7 +259,9 @@ public class PlayState extends State {
         rdm[7].dispose();
         rdm[8].dispose();
         rdm[9].dispose(); */
-        second.dispose();
+        if (second != null){
+            second.dispose();
+        }
         groundfok.dispose();
         sound.dispose();
         group.dispose();

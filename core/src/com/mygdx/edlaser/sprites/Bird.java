@@ -4,11 +4,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.mygdx.edlaser.states.PlayState;
 
 /**
  * Created by welser on 03.08.2015.
  */
-public class Bird {
+public class Bird{
     private static final int GRAVITY = -15;
     private static final int MOVEMENT = 100;
     private Vector3 position;
@@ -29,7 +30,15 @@ public class Bird {
         position = new Vector3(x,y,0);
         velocity = new Vector3(0,0,0);
         bird = new Texture("edbu.png");
-        Texture texture = new Texture("edt.png");
+        Texture texture;
+
+        if(PlayState.character == 1 || PlayState.character == 3){
+            texture = new Texture("edt.png");
+        } else {
+            texture = new Texture("rocketlauch.png");
+        }
+
+
         birdAnimation = new Animation(new TextureRegion(texture), 3,0.5f);
 
         bounce = new Rectangle(x,y+40,texture.getWidth()/6, texture.getHeight());
